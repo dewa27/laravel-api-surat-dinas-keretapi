@@ -23,9 +23,6 @@ jobs:
         # Checks-out your repository under $GITHUB WORKSPACE, so your job can access it
         uses: actions/checkout@v2
 
-      - name: Install depedencies
-        run: composer install --ignore-platform-reqs
-
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
@@ -33,6 +30,9 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /
+
+      - name: Install depedencies
+        run: composer install --ignore-platform-reqs
 
       - name: Migrate Database
         run: php artisan migrate
