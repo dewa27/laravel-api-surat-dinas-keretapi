@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 // Route::get('/', function (Request $request) {
 //     return "tes";
 // });
+Route::get('document/get-favorite', [DocumentController::class, 'getFavorites']);
 Route::apiResource('/document', DocumentController::class);
 Route::get('document/{id}/download', [DocumentController::class, 'download']);
-Route::get('document/favorite', [DocumentController::class, 'getFavorites']);
 Route::post('document/{id}/favorite', [DocumentController::class, 'toggleFavorite']);

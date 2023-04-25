@@ -31,8 +31,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /
 
-      - name: Install depedencies
-        run: composer install --ignore-platform-reqs
+      # - name: Install depedencies
+      #   run: composer install --ignore-platform-reqs
 
-      - name: Migrate Database
-        run: php artisan migrate --force
+      # - name: Migrate Database
+      #   run: php artisan migrate --force
