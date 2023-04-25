@@ -35,4 +35,4 @@ jobs:
         run: composer install --ignore-platform-reqs
 
       - name: Migrate Database
-        run: php artisan migrate
+        run: php artisan migrate --force
