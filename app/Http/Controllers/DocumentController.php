@@ -104,4 +104,19 @@ class DocumentController extends Controller
         $file = public_path('storage') . "/surat/" . $document->filename;
         return response()->download($file);
     }
+    public function getFavorites()
+    {
+        $data = Document::latest()->where('isFavorite', 1)->get();
+        return $this->success($data, "Sukses mengambil data dokumen favorite");
+    }
+    public function toggleFavorite($id)
+    {
+        $document = Document::find($id);
+        if ($document->isFavorite == 0) {
+            $document->update(['isFavorite' => 1]);
+        } else {
+            $document->update(['isFavorite' => 0]);
+        }
+        return $this->success($document, "Sukses menambahkan ke favorite");
+    }
 }

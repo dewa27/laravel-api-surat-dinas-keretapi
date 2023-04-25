@@ -15,16 +15,17 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->string("nomor_surat");
-            $table->string("yth");
-            $table->string("dari");
-            $table->string("hal");
-            $table->string("tanggal");
-            $table->string("nama_ttd");
-            $table->string("nip_ttd");
-            $table->text("isi");
-            $table->text("tembusan");
-            $table->string("filename");
+            $table->string("nomor_surat")->nullable();
+            $table->string("yth")->nullable();
+            $table->string("dari")->nullable();
+            $table->string("hal")->nullable();
+            $table->string("tanggal")->nullable();
+            $table->string("nama_ttd")->nullable();
+            $table->string("nip_ttd")->nullable();
+            $table->text("isi")->nullable();
+            $table->text("tembusan")->nullable();
+            $table->string("filename")->nullable();
+            $table->tinyInteger("isFavorite")->default(0);
             $table->timestamps();
         });
     }
