@@ -64,7 +64,8 @@ class DocumentController extends Controller
                 "created_at" => $document->tanggal_dibuat,
                 "updated_at" => $document->tanggal_diubah,
                 "path" => $document->path,
-                "filename" => $document->filename
+                "filename" => $document->filename,
+                "isFavorite" => $document->isFavorite
             ];
             return $this->success($data, "Sukses menampilkan surat !");
         } catch (\Exception $e) {
