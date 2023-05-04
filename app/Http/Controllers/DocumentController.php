@@ -118,6 +118,7 @@ class DocumentController extends Controller
         } else {
             $document->update(['isFavorite' => 0]);
         }
+        $document = Document::find($id);
         return $this->success($document, "Sukses menambahkan ke favorite");
     }
 }
